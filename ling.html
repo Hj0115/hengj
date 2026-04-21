@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>恒久制作</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            font-family: 'Microsoft Yahei', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh; 
+        }
+
+        .slideshow {
+            width: 600px;
+            height: 400px;
+            margin: 30px auto;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slideshow img {
+            width: 100%;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .message {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin: 30px;
+        }
+
+        .heart {
+            color: #ff4081;
+            font-size: 40px;
+            animation: beat 1s infinite;
+        }
+
+        @keyframes beat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .typing {
+            border-right: 2px solid white;
+            animation: typing 3s steps(40) infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop id="music">
+        <source src="your-music.mp3" type="audio/mpeg">
+        您的浏览器不支持音频播放
+    </audio>
+
+    <div class="container">
+        <div class="slideshow">
+            <img src="1.jpg" alt="我们的第一张合照" >
+            <img src="2.jpg" alt="可爱你的">
+            <img src="3.jpg" alt="美丽的你">
+            <img src="4.jpg" alt="见宝宝带的花花">
+            <img src="5.jpg" alt="在一起第一张合照,好幸福啊">
+            <img src="6.jpg" alt="在一起第一张亲亲,超级开心">
+            <img src="7.jpg" alt="我们的对戒">
+        </div>
+
+        <div class="message">
+            <h1><span class="heart">❤</span> 生日快乐！<span class="heart">❤</span></h1>
+            <p>亲爱的 杨宛玲宝宝：</p>
+            <p>在这个特别的日子里，我想告诉你</p>
+            <p>你是我生命中最美好的遇见</p>
+            <p>时光会走远，但爱意永存 ❤️</p>
+            <p>愿今后的每一天，都有我陪你走过 🌈</p>
+            <p class="typing">---永远爱你的我 ❤️</p>
+        </div>
+        <img src="10.jpg" alt="通话我都是有记录的">
+    </div>
+
+    <script>
+        // 图片自动切换
+        let current = 0;
+        const images = document.querySelectorAll('.slideshow img');
+        
+        setInterval(() => {
+            images[current].style.opacity = 0;
+            current = (current + 1) % images.length;
+            images[current].style.opacity = 1;
+        }, 3000);
+
+        // 点击页面播放音乐
+        document.body.addEventListener('click', function() {
+            document.getElementById('music').play();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>生日快乐！我的宝贝❤️</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            text-align: center;
+            font-family: 'Microsoft YaHei', sans-serif;
+            padding: 20px;
+        }
+        .photo-frame {
+            border: 15px solid white;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        .message-box {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+        h1 {
+            color: #ff3366;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+        }
+        p {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .heart {
+            color: #ff3366;
+            font-size: 1.5em;
+        }
+        .img{
+            width: 100px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <img class="photo-frame" src="1.png" alt="最可爱的你" width="300px" height="500px">
+    <img class="photo-frame" src="2.png" alt="最可爱的你" width="300px" height="500px">
+
+
+    <div class="message-box">
+        <h1>生日快乐，我的女孩！🎂</h1>
+        
+        <p>
+            亲爱的<span class="heart">❤️杨宛玲❤️</span>：<br>
+            这是我们在一起的第一个生日，<br>
+            你就像星辰点亮了我的夜空，<br>
+            你的笑容是我每天最期待的礼物。<br>
+            愿往后余生，<br>
+            三餐四季都有你，<br>
+            朝朝暮暮常相伴。<br>
+        </p>
+
+        <p class="heart">
+            🌸 永远爱你的 杨宛玲 🌸
+        </p>
+    </div>
+
+    <!-- 添加动态爱心效果 -->
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animation = 'fall 2s linear';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 2000);
+        }
+        setInterval(createHeart, 300);
+
+        // 添加点击照片的互动
+        document.querySelector('img').onclick = function() {
+            alert("无论点多少次，你都是我的唯一！💖");
+        };
+    </script>
+
+    <style>
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</body>
+</html>
